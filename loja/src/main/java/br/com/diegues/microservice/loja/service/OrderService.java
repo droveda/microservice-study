@@ -1,6 +1,6 @@
 package br.com.diegues.microservice.loja.service;
 
-import br.com.diegues.microservice.loja.controller.dto.InfoProviderDto;
+import br.com.diegues.microservice.loja.controller.dto.InfoSupplierDto;
 import br.com.diegues.microservice.loja.controller.dto.OrderDto;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +12,8 @@ public class OrderService {
 
     public void doOrder(OrderDto order) {
         RestTemplate client = new RestTemplate();
-        ResponseEntity<InfoProviderDto> exchange = client.exchange("http://localhost:8081/info/" + order.getAddress().getState(),
-                HttpMethod.GET, null, InfoProviderDto.class);
+        ResponseEntity<InfoSupplierDto> exchange = client.exchange("http://fornecedor/info/" + order.getAddress().getState(),
+                HttpMethod.GET, null, InfoSupplierDto.class);
         System.out.println(exchange.getBody().getAddress());
     }
 

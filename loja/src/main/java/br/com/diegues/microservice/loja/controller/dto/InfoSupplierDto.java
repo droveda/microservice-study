@@ -1,6 +1,6 @@
 package br.com.diegues.microservice.loja.controller.dto;
 
-public class InfoProviderDto {
+public class InfoSupplierDto {
 
     private String address;
 
