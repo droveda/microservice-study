@@ -4,8 +4,10 @@ import br.com.diegues.microservice.loja.controller.dto.InfoProviderDto;
 import br.com.diegues.microservice.loja.controller.dto.OrderDto;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+@Service
 public class OrderService {
 
     public void doOrder(OrderDto order) {
