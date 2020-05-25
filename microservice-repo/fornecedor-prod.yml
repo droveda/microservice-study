@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/microservice
+    username: postgres222
+    password: postgres222
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
