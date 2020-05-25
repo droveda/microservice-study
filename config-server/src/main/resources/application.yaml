@@ -4,11 +4,15 @@ server:
 spring:
   application:
     name: configserver
-  profiles:
-    active: native
   cloud:
     config:
       server:
-        native:
-          search-locations: file:///Users/diegues/microservice-repo
+        git:
+          uri: https://github.com/droveda/microservice-study
+          search-paths: microservice-repo
+        #native:
+        #  search-locations: file:///Users/diegues/microservice-repo
+  #profiles:
+  #  active: native
+
 
