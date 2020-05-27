@@ -29,4 +29,13 @@ public class AddressDto {
     public void setState(String state) {
         this.state = state;
     }
+
+    @Override
+    public String toString() {
+        return "AddressDto{" +
+                "street='" + street + '\'' +
+                ", number=" + number +
+                ", state='" + state + '\'' +
+                '}';
+    }
 }

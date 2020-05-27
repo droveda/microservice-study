@@ -1,6 +1,7 @@
 package br.com.diegues.microservice.loja.controller;
 
 import br.com.diegues.microservice.loja.controller.dto.OrderDto;
+import br.com.diegues.microservice.loja.model.Compra;
 import br.com.diegues.microservice.loja.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,8 +17,8 @@ public class OrderController {
     private OrderService orderService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public void doOrder(@RequestBody OrderDto order) {
-        orderService.doOrder(order);
+    public Compra doOrder(@RequestBody OrderDto order) {
+        return orderService.doOrder(order);
     }
 
 }
