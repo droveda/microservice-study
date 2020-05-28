@@ -1,8 +1,13 @@
 package br.com.diegues.microservice.loja.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 public class OrderDto {
+
+    @JsonIgnore
+    private Long crompraId;
 
     private List<OrderItemDto> items;
 
@@ -22,5 +27,13 @@ public class OrderDto {
 
     public void setAddress(AddressDto address) {
         this.address = address;
+    }
+
+    public Long getCrompraId() {
+        return crompraId;
+    }
+
+    public void setCrompraId(Long crompraId) {
+        this.crompraId = crompraId;
     }
 }

@@ -4,6 +4,7 @@ import br.com.diegues.microservice.loja.controller.dto.OrderDto;
 import br.com.diegues.microservice.loja.model.Compra;
 import br.com.diegues.microservice.loja.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +20,11 @@ public class OrderController {
     @RequestMapping(method = RequestMethod.POST)
     public Compra doOrder(@RequestBody OrderDto order) {
         return orderService.doOrder(order);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Compra getById(@PathVariable("id") Long id) {
+        return orderService.getById(id);
     }
 
 }

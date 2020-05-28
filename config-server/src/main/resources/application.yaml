@@ -9,7 +9,7 @@ spring:
       server:
         git:
           uri: https://github.com/droveda/microservice-study
-          search-paths: microservice-repo
+          search-paths: microservice-repo/fornecedor, microservice-repo/loja, microservice-repo/transportador
         #native:
         #  search-locations: file:///Users/diegues/microservice-repo
   #profiles:
