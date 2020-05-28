@@ -5,6 +5,7 @@ import br.com.diegues.microservice.loja.controller.dto.InfoPedidoDto;
 import br.com.diegues.microservice.loja.controller.dto.InfoSupplierDto;
 import br.com.diegues.microservice.loja.controller.dto.OrderDto;
 import br.com.diegues.microservice.loja.model.Compra;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class OrderService {
     @Autowired
     private FornecedorClient fornecedorClient;
 
+    @HystrixCommand(fallbackMethod = "doOrderFallback")
     public Compra doOrder(OrderDto order) {
         String state = order.getAddress().getState();
 
@@ -32,7 +34,15 @@ public class OrderService {
         compra.setTempoDePreparo(pedido.getTempoDePreparo());
         compra.setEnderecoDestino(order.getAddress().toString());
 
+
         return compra;
+    }
+
+    public Compra doOrderFallback(OrderDto order) {
+        Compra compraFallback = new Compra();
+        compraFallback.setEnderecoDestino(order.getAddress().toString());
+
+        return compraFallback;
     }
 
 }
