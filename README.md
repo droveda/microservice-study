@@ -1,7 +1,7 @@
 # microservice-study
-Study with some examples os micro services using spring-boot + spring-cloud
+Study with some examples of micro services using spring-boot + spring-cloud
 
-This is a project example using spring cloud technologies.
+This is an example project using spring cloud technologies.
 
 -Auth 
  * auth server using spring security and oauth2
